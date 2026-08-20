@@ -47,8 +47,8 @@ and dividing by $|E| > 0$ yields $4|E| \le n^2$.
 | `sum_sum_deg_self` | $\sum_v \sum_{w \in N(v)} \deg(v) = \sum_v \deg(v)^2$ |
 | `sum_sum_deg_swap` | $\sum_v \sum_{w \in N(v)} \deg(w) = \sum_v \deg(v)^2$ |
 | `deg_add_deg_le` | For an edge $u \sim v$ in a triangle-free graph, $\deg(u) + \deg(v) \le n$ |
-| `sum_deg_sq_le` | $\sum_v \deg(v)^2 \le n\,|E|$ |
-| `four_edges_sq_le` | $4|E|^2 \leq n^2 |E|$ (Cauchy–Schwarz over $\mathbb{R}$, cast back to $\mathbb{N}$) |
+| `sum_deg_sq_le` | $\sum_v \deg(v)^2 \leq n\mid E \mid$ |
+| `four_edges_sq_le` | $4\mid E\mid^2 \leq n^2 \mid E\mid$ (Cauchy–Schwarz over $\mathbb{R}$, cast back to $\mathbb{N}$) |
 | `mantel` | $4|E| \leq n^2$ |
 
 ## Setup
