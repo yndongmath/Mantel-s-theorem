@@ -67,22 +67,52 @@ lemma deg_add_deg_le (hG : G.CliqueFree 3) {u v : V} (huv : G.Adj u v) :
 -- part 2
 -- ∑_v ∑_{w ∈ N(v)} deg(v) = ∑ deg^2
 lemma sum_sum_deg_self : ∑ v : V, ∑ _w ∈ G.neighborFinset v,
-  G.degree v = ∑ v : V, G.degree v ^ 2 := by
-  simpa [Finset.sum_const, Finset.card_eq_sum_ones, G.degree]
+    G.degree v = ∑ v : V, G.degree v ^ 2 := by
+  simp_rw [sum_const, smul_eq_mul, card_neighborFinset]
+  congr 1
+  ext v
+  ring
 
 -- ∑_v ∑_{w ∈ N(v)} deg(w) = ∑ deg^2 (by swapping v,w)
-lemma sum_sum_deg_swap : ∑ v : V, ∑ w ∈ G.neighborFinset v,
-  G.degree w = ∑ v : V, G.degree v ^ 2 := by
-  simp_rw [Finset.sum_comm]
+lemma sum_sum_deg_swap :
+    ∑ v : V, ∑ w ∈ G.neighborFinset v, G.degree w = ∑ v : V, G.degree v ^ 2 := by
+  have h : ∑ v : V, ∑ w ∈ G.neighborFinset v, G.degree w =
+           ∑ v : V, ∑ w ∈ G.neighborFinset v, G.degree v := by
+    rw [sum_comm]
+    refine sum_congr rfl (fun x _ => ?_)
+    refine sum_congr ?_ (fun y _ => rfl)
+    ext y
+    simp [mem_neighborFinset, adj_comm]
+  rw [h, sum_sum_deg_self]
 
 -- ∑ deg^2 ≤ n |E|
 lemma sum_deg_sq_le (hG : G.CliqueFree 3) : ∑ v : V,
-  G.degree v ^ 2 ≤ card V * G.edgeFinset.card := by
+    G.degree v ^ 2 ≤ card V * G.edgeFinset.card := by
   have h_add : 2 * ∑ v : V, G.degree v ^ 2 =
       ∑ v : V, ∑ w ∈ G.neighborFinset v, (G.degree v + G.degree w) := by
     rw [sum_add_distrib]
     simp_rw [← sum_sum_deg_self, ← sum_sum_deg_swap]
     ring
+
+  have h_le : ∑ v : V, ∑ w ∈ G.neighborFinset v, (G.degree v + G.degree w) ≤
+      ∑ v : V, ∑ w ∈ G.neighborFinset v, card V := by
+    refine sum_le_sum (fun v _ => sum_le_sum (fun w hw => ?_))
+    rw [mem_neighborFinset] at hw
+    exact deg_add_deg_le hG hw
+
+  have h_bound : ∑ v : V, ∑ _w ∈ G.neighborFinset v, card V =
+      card V * (2 * G.edgeFinset.card) := by
+    simp_rw [sum_const, smul_eq_mul, card_neighborFinset]
+    rw [← mul_sum, sum_degrees_eq_twice_card_edges]
+
+  have h_two : 2 * ∑ v : V, G.degree v ^ 2 ≤ 2 * (card V * G.edgeFinset.card) := by
+    calc 2 * ∑ v : V, G.degree v ^ 2
+      _ = ∑ v : V, ∑ w ∈ G.neighborFinset v, (G.degree v + G.degree w) := h_add
+      _ ≤ ∑ v : V, ∑ w ∈ G.neighborFinset v, card V := h_le
+      _ = card V * (2 * G.edgeFinset.card) := h_bound
+      _ = 2 * (card V * G.edgeFinset.card) := by ring
+
+  exact Nat.le_of_mul_le_mul_left h_two (by decide)
 
 -- part 3
 -- 4|E|^2 ≤ n^2 |E|
