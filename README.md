@@ -43,5 +43,6 @@ The proof implemented in `Mantel.lean` follows a classic 3-step combinatorial ap
 ## 🤝 Authors & Credits
 Developed during the Utrecht University Summer School (2026) on Formal Methods.
 
-Yanni Dong (@yndongmath)
+Yanni Dong (@yndongmath) 
+and
 Anastasiia (Stacey) Sharfenberg
