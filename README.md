@@ -41,7 +41,7 @@ The proof implemented in `Mantel.lean` follows a classic 3-step combinatorial ap
    cd Mantel-s-theorem
 
 ## 🤝 Authors & Credits
-Developed during the Utrecht University Summer School (2026) on Formal Methods.
+Developed during the Utrecht University Summer School Formalizing Mathematics in Lean (2026)
 
 Yanni Dong (@yndongmath) 
 and
