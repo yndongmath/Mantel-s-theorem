@@ -103,5 +103,5 @@ If `sorryAx` appears in that list, some part of the proof is still incomplete.
 
 Developed during the **Utrecht University Summer School: *Formalizing Mathematics in Lean*** (2026).
 
-- Yanni (Kelly) Dong
-- Anastasiia (Stacey) Sharfenberg
+- Yanni Dong
+- Anastasiia Sharfenberg
