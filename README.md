@@ -42,10 +42,3 @@ Clone the repository:
    git clone [https://github.com/yndongmath/Mantel-s-theorem.git](https://github.com/yndongmath/Mantel-s-theorem.git)
    cd Mantel-s-theorem
 ---
-
-##  Authors & Credits
-Developed during the Utrecht University Summer School Formalizing Mathematics in Lean (2026)
-
-Yanni Dong
-and
-Anastasiia (Stacey) Sharfenberg
