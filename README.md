@@ -39,3 +39,9 @@ The proof implemented in `Mantel.lean` follows a classic 3-step combinatorial ap
    ```bash
    git clone [https://github.com/yndongmath/Mantel-s-theorem.git](https://github.com/yndongmath/Mantel-s-theorem.git)
    cd Mantel-s-theorem
+
+## 🤝 Authors & Credits
+Developed during the Utrecht University Summer School (2026) on Formal Methods.
+
+Yanni Dong (@yndongmath)
+Anastasiia (Stacey) Sharfenberg
