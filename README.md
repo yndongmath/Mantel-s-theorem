@@ -8,7 +8,7 @@ Mantel's Theorem (1907) is a fundamental result in extremal graph theory. It sta
 Any triangle-free graph $G$ with $n$ vertices has at most $\lfloor n^2 / 4 \rfloor$ edges.
 ---
 
-## 💡 Proof Strategy
+##  Proof Strategy
 
 The proof implemented in `Mantel.lean` follows a classic 3-step combinatorial approach:
 
@@ -27,12 +27,14 @@ The proof implemented in `Mantel.lean` follows a classic 3-step combinatorial ap
    - Combining both yields $4|E|^2 \le n^2 |E|$, which simplifies to $4|E| \le n^2$.
 
 ---
+## Dependencies & Setup
 
-## 🛠️ Requirements & Setup
+This project uses **Lean 4** and relies on **Mathlib 4**.
 
-- Lean 4: `v4.x`
-- Mathlib: Required for graph theory definitions (`SimpleGraph`), finset summations, and arithmetic tactics.
-
+### Prerequisites
+Make sure you have `elan` (the Lean version manager) installed. If not, install it via:
+```bash
+curl [https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh](https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh) -sSf | sh
 ### Build Instructions
 
 1. Clone the repository:
@@ -40,7 +42,7 @@ The proof implemented in `Mantel.lean` follows a classic 3-step combinatorial ap
    git clone [https://github.com/yndongmath/Mantel-s-theorem.git](https://github.com/yndongmath/Mantel-s-theorem.git)
    cd Mantel-s-theorem
 
-## 🤝 Authors & Credits
+##  Authors & Credits
 Developed during the Utrecht University Summer School Formalizing Mathematics in Lean (2026)
 
 Yanni Dong
