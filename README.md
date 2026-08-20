@@ -37,10 +37,11 @@ Make sure you have `elan` (the Lean version manager) installed. If not, install 
 curl [https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh](https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh) -sSf | sh
 ### Build Instructions
 
-1. Clone the repository:
+Clone the repository:
    ```bash
    git clone [https://github.com/yndongmath/Mantel-s-theorem.git](https://github.com/yndongmath/Mantel-s-theorem.git)
    cd Mantel-s-theorem
+---
 
 ##  Authors & Credits
 Developed during the Utrecht University Summer School Formalizing Mathematics in Lean (2026)
